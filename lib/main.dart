@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:post_method/models/delete_provider.dart';
+import 'package:post_method/models/get_provider.dart';
 import 'package:post_method/models/post_provider.dart';
+import 'package:post_method/models/put_provider.dart';
+import 'package:post_method/pages/delete_provider.dart';
+import 'package:post_method/pages/get_provider.dart';
 import 'package:post_method/pages/get_stateful.dart';
 import 'package:post_method/pages/post_provider.dart';
 import 'package:post_method/pages/post_stateful.dart';
+import 'package:post_method/pages/put_provider.dart';
+import 'package:post_method/pages/put_stateful.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => HttpProvider(),
-    child: const MyApp(),
-  ));
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => HttpProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => GetProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => PutProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => DeleteProvider(),
+    ),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,6 +42,10 @@ class MyApp extends StatelessWidget {
         '/home-stateful': (context) => const PostStateful(),
         '/home-provider': (context) => PostProvider(),
         '/get-stateful': (context) => GetPageStateful(),
+        '/get-provider': (context) => GetPageProvider(),
+        '/put-stateful': (context) => const PutPageStateful(),
+        '/put-provider': (context) => PutPageProvider(),
+        '/delete-provider': (context) => DeletePage(),
       },
     );
   }
@@ -60,6 +81,30 @@ class HomePage extends StatelessWidget {
                 Navigator.pushNamed(context, GetPageStateful.routeName);
               },
               child: const Text('GET - STATEFUL'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, GetPageProvider.routeName);
+              },
+              child: const Text('GET - PROVIDER'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, PutPageStateful.routeName);
+              },
+              child: const Text('PUT - STATEFUL'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, PutPageProvider.routeName);
+              },
+              child: const Text('PUT - PROVIDER'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, DeletePage.routeName);
+              },
+              child: const Text('DELETE - PROVIDER'),
             ),
           ],
         ),

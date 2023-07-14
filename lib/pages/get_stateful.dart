@@ -23,19 +23,19 @@ class _GetPageStatefulState extends State<GetPageStateful> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(50),
-              child: Container(
-                height: 100,
-                width: 100,
-                child: Image.network(
-                  (dataReponse.avatar == null)
-                      ? "https://www.uclg-planning.org/sites/default/files/styles/featured_home_left/public/no-user-image-square.jpg?itok=PANMBJF-"
-                      : dataReponse.avatar!,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            // ClipRRect(
+            //   borderRadius: BorderRadius.circular(50),
+            //   child: Container(
+            //     height: 100,
+            //     width: 100,
+            //     child: Image.network(
+            //       (dataReponse.avatar == null)
+            //           ? "https://www.uclg-planning.org/sites/default/files/styles/featured_home_left/public/no-user-image-square.jpg?itok=PANMBJF-"
+            //           : dataReponse.avatar!,
+            //       fit: BoxFit.cover,
+            //     ),
+            //   ),
+            // ),
             SizedBox(height: 20),
             FittedBox(
               child: Text(

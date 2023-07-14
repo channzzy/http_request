@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:post_method/models/post_provider.dart';
+import 'package:post_method/models/put_provider.dart';
 import 'package:provider/provider.dart';
 
-class PostProvider extends StatelessWidget {
-  static const routeName = '/home-provider';
+class PutPageProvider extends StatelessWidget {
+  static const routeName = '/put-provider';
   @override
   Widget build(BuildContext context) {
     final TextEditingController _nameController = TextEditingController();
     final TextEditingController _jobController = TextEditingController();
-    final dataProvider = Provider.of<HttpProvider>(context, listen: false);
+    final putProvider = Provider.of<PutProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title: Text("POST - PROVIDER"),
+        title: Text("PUT - PROVIDER"),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -49,24 +49,9 @@ class PostProvider extends StatelessWidget {
                 height: 20,
               ),
               const Text('Hasil Response'),
-              const SizedBox(
-                height: 20,
-              ),
-              FittedBox(
-                child: Consumer<HttpProvider>(
-                  builder: (context, value, child) {
-                    return Text(
-                      (value.data["id"] == null)
-                          ? "ID : Belum ada data"
-                          : "ID : ${value.data["id"]}",
-                      style: TextStyle(fontSize: 20),
-                    );
-                  },
-                ),
-              ),
               const SizedBox(height: 20),
               FittedBox(
-                child: Consumer<HttpProvider>(
+                child: Consumer<PutProvider>(
                   builder: (context, value, child) {
                     return Text(
                       (value.data["name"] == null)
@@ -79,7 +64,7 @@ class PostProvider extends StatelessWidget {
               ),
               SizedBox(height: 20),
               FittedBox(
-                child: Consumer<HttpProvider>(
+                child: Consumer<PutProvider>(
                   builder: (context, value, child) {
                     return Text(
                       (value.data["job"] == null)
@@ -92,12 +77,12 @@ class PostProvider extends StatelessWidget {
               ),
               SizedBox(height: 20),
               FittedBox(
-                child: Consumer<HttpProvider>(
+                child: Consumer<PutProvider>(
                   builder: (context, value, child) {
                     return Text(
-                      (value.data["createdAt"] == null)
-                          ? "createdAt : Belum ada data"
-                          : "createdAt : ${value.data["createdAt"]}",
+                      (value.data["updatedAt"] == null)
+                          ? "updatedAt : Belum ada data"
+                          : "updatedAt : ${value.data["updatedAt"]}",
                       style: TextStyle(fontSize: 20),
                     );
                   },
@@ -106,11 +91,11 @@ class PostProvider extends StatelessWidget {
               const SizedBox(height: 100),
               OutlinedButton(
                 onPressed: () {
-                  dataProvider.connectApiProvider(
+                  putProvider.connectApiProvider(
                       _nameController.text, _jobController.text);
                 },
                 child: const Text(
-                  "POST DATA",
+                  "PUT DATA",
                   style: TextStyle(
                     fontSize: 25,
                   ),
