@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:post_method/models/put_stateful.dart';
+import 'package:post_method/providers/put_stateful.dart';
 
 class PutPageStateful extends StatefulWidget {
   static const routeName = '/put-stateful';

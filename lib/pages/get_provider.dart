@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:post_method/models/get_provider.dart';
+import 'package:post_method/providers/get_provider.dart';
 import 'package:provider/provider.dart';
 
 class GetPageProvider extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:post_method/models/put_provider.dart';
+import 'package:post_method/providers/put_provider.dart';
 import 'package:provider/provider.dart';
 
 class PutPageProvider extends StatelessWidget {

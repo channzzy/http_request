@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:post_method/models/post_provider.dart';
+import 'package:post_method/providers/post_provider.dart';
 import 'package:provider/provider.dart';
 
 class PostProvider extends StatelessWidget {

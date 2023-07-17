@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:post_method/models/delete_provider.dart';
+import 'package:post_method/providers/delete_provider.dart';
 import 'package:provider/provider.dart';
 
 class DeletePage extends StatelessWidget {

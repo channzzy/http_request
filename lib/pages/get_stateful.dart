@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:post_method/models/get_stateful.dart';
+import 'package:post_method/providers/get_stateful.dart';
 
 class GetPageStateful extends StatefulWidget {
   static const routeName = '/get-stateful';

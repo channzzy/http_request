@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:post_method/models/post_stateful.dart';
+import 'package:post_method/providers/post_stateful.dart';
 
 class PostStateful extends StatefulWidget {
   static const routeName = '/home-stateful';

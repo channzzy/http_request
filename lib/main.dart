@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:post_method/models/delete_provider.dart';
-import 'package:post_method/models/get_provider.dart';
-import 'package:post_method/models/post_provider.dart';
-import 'package:post_method/models/put_provider.dart';
+import 'package:post_method/pages/firebase_http/detail_player.dart';
+import 'package:post_method/pages/firebase_http/home_page.dart';
+import 'package:post_method/pages/firebase_http/post_firebase.dart';
+import 'package:post_method/providers/delete_provider.dart';
+import 'package:post_method/providers/firebase_providers/players.dart';
+import 'package:post_method/providers/get_provider.dart';
+import 'package:post_method/providers/post_provider.dart';
+import 'package:post_method/providers/put_provider.dart';
 import 'package:post_method/pages/delete_provider.dart';
 import 'package:post_method/pages/get_provider.dart';
 import 'package:post_method/pages/get_stateful.dart';
@@ -26,6 +30,9 @@ void main() {
     ChangeNotifierProvider(
       create: (context) => DeleteProvider(),
     ),
+    ChangeNotifierProvider(
+      create: (context) => Players(),
+    ),
   ], child: const MyApp()));
 }
 
@@ -46,6 +53,9 @@ class MyApp extends StatelessWidget {
         '/put-stateful': (context) => const PutPageStateful(),
         '/put-provider': (context) => PutPageProvider(),
         '/delete-provider': (context) => DeletePage(),
+        '/post-firebase': (context) => HomePageFirebase(),
+        '/add-player': (context) => AddPlayer(),
+        '/detail-player': (context) => DetailPlayer(),
       },
     );
   }
@@ -105,6 +115,12 @@ class HomePage extends StatelessWidget {
                 Navigator.pushNamed(context, DeletePage.routeName);
               },
               child: const Text('DELETE - PROVIDER'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, HomePageFirebase.routeName);
+              },
+              child: const Text('POST - FIREBASE'),
             ),
           ],
         ),
